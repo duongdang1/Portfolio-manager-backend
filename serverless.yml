@@ -1,0 +1,61 @@
+org: duongdang
+app: portfolio-manager
+service: portfolio-manager 
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+  iam: 
+    role: 
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "dynamodb:*"
+          Resource:
+            Fn::GetAtt: [ PortfolioTable, Arn ]
+
+functions:
+  addPorftolio:
+    handler: src/portfolio/Portfolio.addPortfolio
+    events:
+      - httpApi:
+          path: /portfolio
+          method: post
+  
+  getPortfolio:
+    handler: src/portfolio/Portfolio.getPortfolio
+    events:
+      - httpApi:
+          path: /portfolio/{id}
+          method: get
+  
+  updatePortfolio:
+    handler: src/portfolio/Portfolio.updatePortfolio
+    events:
+      - httpApi:
+          path: /portfolio/{id}
+          method: put
+  
+  deletePortfolio:
+    handler: src/portfolio/Portfolio.deletePortfolio
+    events:
+      - httpApi:
+          path: /portfolio/{id}
+          method: delete
+
+resources:
+  Resources: 
+    PortfolioTable:
+      Type: AWS::DynamoDB::Table
+      Properties: 
+        TableName: PortfolioTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions: 
+          - AttributeName: id
+            AttributeType: S
+        KeySchema: 
+          - AttributeName: id
+            KeyType: HASH
