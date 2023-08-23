@@ -3,19 +3,18 @@ const { DynamoDBClient, PutItemCommand, GetItemCommand, UpdateItemCommand, Delet
 const { v4: uuidv4 } = require('uuid');
 const { transform } = require("../util/portfolioUtil");
 const { mergePortfolios } = require("../util/portfolioUtil");
+// const { validateAuth } = require("../middleware/auth");
 
 const addPortfolio = async (event) => {
     const { userId, portfolio } = JSON.parse(event.body);
     const createdAt = new Date();
-    const id = uuidv4();
     let startDate = new Date();
     const dynamoDBClient = new DynamoDBClient({ region: "us-east-1" });
     const transformedPortfolio = transform(portfolio);
     const input = {
         TableName: "PortfolioTable",
         Item: {
-            id: { S: id },
-            userId: { S: userId },
+            id: { S: userId },
             portfolio: { M: transformedPortfolio },
             createdAt: { S: createdAt }
         }
@@ -26,8 +25,7 @@ const addPortfolio = async (event) => {
         console.log(err)
     }
     const newPortfolio = {
-        id: { S: id },
-        userId: { S: userId },
+        id: { S: userId },
         portfolio: { M: transformedPortfolio },
         createdAt: { S: createdAt }
       }
@@ -42,12 +40,12 @@ const addPortfolio = async (event) => {
 }
 
 const getPortfolio = async (event) => {
-    const { id } = event.pathParameters;
+    const { userId } = JSON.parse(event.body);
     const dynamoDBClient = new DynamoDBClient({ region: "us-east-1" });
     const input = {
         TableName: "PortfolioTable",
         Key: {
-            id: { S: id }
+            id: { S: userId }
         }
     };
     try { 
@@ -64,14 +62,13 @@ const getPortfolio = async (event) => {
 
 const updatePortfolio = async (event) => {
     try {
-        const { portfolio } = JSON.parse(event.body); // Portfolio changes received from frontend
-        const { id } = event.pathParameters;
+        const { userId, portfolio } = JSON.parse(event.body); // Portfolio changes received from frontend
         const createdAt = new Date().toISOString();
 
         const getItemInput = {
             TableName: "PortfolioTable",
             Key: {
-                id: { S: id }
+                id: { S: userId }
             }
         };
 
@@ -89,7 +86,7 @@ const updatePortfolio = async (event) => {
         const updateInput = {
             TableName: "PortfolioTable",
             Key: {
-                id: { S: id }
+                id: { S: userId }
             },
             UpdateExpression: "SET portfolio = :portfolio, createdAt = :createdAt",
             ExpressionAttributeValues: {
@@ -116,14 +113,14 @@ const updatePortfolio = async (event) => {
 
 const deletePortfolio = async (event) => {
     try {
-        const { id } = event.pathParameters;
+        const { userId } = JSON.parse(event.body);
 
         const dynamoDBClient = new DynamoDBClient({ region: "us-east-1" });
 
         const deleteInput = {
             TableName: "PortfolioTable",
             Key: {
-                id: { S: id }
+                id: { S: userId }
             }
         };
 
@@ -142,4 +139,9 @@ const deletePortfolio = async (event) => {
     }
 };
 
-module.exports = { addPortfolio, getPortfolio, updatePortfolio, deletePortfolio };
+module.exports = { 
+    addPortfolio, 
+    getPortfolio, 
+    updatePortfolio, 
+    deletePortfolio
+};

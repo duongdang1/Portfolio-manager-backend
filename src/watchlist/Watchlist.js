@@ -2,7 +2,7 @@
 const { DynamoDBClient, PutItemCommand, GetItemCommand, DeleteItemCommand,UpdateItemCommand } = require('@aws-sdk/client-dynamodb');
 const { v4: uuidv4 } = require('uuid');
 const { updateWatchListUtil } = require("../util/watchlistUtil");
-
+// const { validateAuth } = require("../middleware/auth");
 const createWatchList = async (event) => {
     try {
         const { userId, watchListName } = JSON.parse(event.body);
@@ -37,8 +37,7 @@ const createWatchList = async (event) => {
 
 const updateWatchList = async (event) => {
     try {
-        const { watchlist } = JSON.parse(event.body);
-        const { id } = event.pathParameters;
+        const { userId, watchlist } = JSON.parse(event.body);
         const dynamoDBClient = new DynamoDBClient({ region: "us-east-1" });
         const processedWatchlist = watchlist.map(symbol => {
             return { "S": symbol };
@@ -47,7 +46,7 @@ const updateWatchList = async (event) => {
         const updateInput = {
             TableName: "WatchlistTable",
             Key: {
-                id: { S: id }
+                userId: { S: userId }
             },
             UpdateExpression: "SET watchlist = :watchlist",
             ExpressionAttributeValues: {
@@ -70,12 +69,12 @@ const updateWatchList = async (event) => {
 }
 
 const getWatchList = async (event) => {
-    const { id } = event.pathParameters;
+    const { userId } = JSON.parse(event.body);
     const dynamoDBClient = new DynamoDBClient({ region: "us-east-1" });
     const input = {
         TableName: "WatchlistTable",
         Key: {
-            id: { S: id }
+            userId: { S: userId }
         }
     };
     try { 
@@ -92,11 +91,11 @@ const getWatchList = async (event) => {
 
 const deleteWatchList = async (event) => {
     try {
-        const { id } = event.pathParameters;
+        const { userId } = JSON.parse(event.body);
         const dynamoDBClient = new DynamoDBClient({ region: "us-east-1" });
         const deleteItemInput = {
             TableName: "WatchlistTable",
-            Key: { id: { S: id } }
+            Key: { userId: { S: userId } }
         }
         await dynamoDBClient.send(new DeleteItemCommand({ deleteItemInput }));
         return {
@@ -112,4 +111,9 @@ const deleteWatchList = async (event) => {
     }
 }
 
-module.exports = { createWatchList, getWatchList, deleteWatchList, updateWatchList }
+module.exports = { 
+    createWatchList, 
+    getWatchList, 
+    deleteWatchList, 
+    updateWatchList
+}

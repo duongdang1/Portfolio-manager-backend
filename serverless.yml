@@ -34,21 +34,21 @@ functions:
     handler: src/portfolio/Portfolio.getPortfolio
     events:
       - httpApi:
-          path: /portfolio/{id}
+          path: /portfolio
           method: get
   
   updatePortfolio:
     handler: src/portfolio/Portfolio.updatePortfolio
     events:
       - httpApi:
-          path: /portfolio/{id}
+          path: /portfolio
           method: put
   
   deletePortfolio:
     handler: src/portfolio/Portfolio.deletePortfolio
     events:
       - httpApi:
-          path: /portfolio/{id}
+          path: /portfolio
           method: delete
 
   createWatchList:
@@ -78,6 +78,13 @@ functions:
       - httpApi:
           path: /watchlist/{id}
           method: delete
+
+  getTimeSeriesData: 
+    handler: src/data/time-series/TimeSeries.getTimeSeriesData
+    events: 
+      - httpApi:
+          path: /getTimeSeries
+          method: get
 
 resources:
   Resources: 
