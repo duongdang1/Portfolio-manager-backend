@@ -1,4 +1,4 @@
-function filterResponse(response) {
+function filterTimeSeriesResponse(response) {
     const finalResponse = {
         symbol: { S: response.data["Meta Data"]["2. Symbol"] },
         interval: { S: response.data["Meta Data"]["4. Interval"] },
@@ -9,4 +9,4 @@ function filterResponse(response) {
     return finalResponse;
 }
 
-module.exports = { filterResponse }
+module.exports = { filterTimeSeriesResponse }

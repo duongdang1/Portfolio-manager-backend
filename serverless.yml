@@ -86,6 +86,13 @@ functions:
           path: /getTimeSeries
           method: get
 
+  getRealTimeData: 
+    handler: src/data/real-time/RealTime.getRealTimeData
+    events: 
+      - httpApi: 
+          path: /getRealTime
+          method: get
+
 resources:
   Resources: 
     PortfolioTable:

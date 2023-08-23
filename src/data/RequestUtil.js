@@ -1,3 +1,4 @@
+require('dotenv').config();
 function TimeSeriesRequestBuilder(symbol) {
     const options = {
         method: "GET",
@@ -10,11 +11,27 @@ function TimeSeriesRequestBuilder(symbol) {
             output_size: "compact"
         },
         headers: {
-            "X-RapidAPI-Key": "a3f7c9efd6msh223c604baea790cp1796a9jsn3493cf60d423",
+            "X-RapidAPI-Key": process.env.ALPHA_VANTAGE_TIMESERIES_API,
             "X-RapidAPI-Host": "alpha-vantage.p.rapidapi.com"
         }
     };
     return options;
 }
 
-module.exports = { TimeSeriesRequestBuilder }
+function RealTimeRequestBuilder(symbol) {
+    const options = {
+        method: 'GET',
+        url: 'https://real-time-finance-data.p.rapidapi.com/stock-quote',
+        params: {
+            symbol: symbol,
+            language: 'en'
+        },
+        headers: {
+            'X-RapidAPI-Key': process.env.REALTIME_FINANCE_DATA,
+            'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com'
+        }
+    };
+    return options;
+}
+
+module.exports = { TimeSeriesRequestBuilder, RealTimeRequestBuilder }
