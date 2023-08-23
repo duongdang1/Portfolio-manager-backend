@@ -15,7 +15,12 @@ provider:
           Action:
             - "dynamodb:*"
           Resource:
-            Fn::GetAtt: [ PortfolioTable, Arn ]
+            - Fn::GetAtt: 
+              - PortfolioTable
+              - Arn
+            - Fn::GetAtt: 
+              - WatchlistTable
+              - Arn
 
 functions:
   addPorftolio:
@@ -46,12 +51,52 @@ functions:
           path: /portfolio/{id}
           method: delete
 
+  createWatchList:
+    handler: src/watchlist/Watchlist.createWatchList
+    events:
+      - httpApi:
+          path: /watchlist
+          method: post
+  
+  getWatchList:
+    handler: src/watchlist/Watchlist.getWatchList
+    events:
+      - httpApi:
+          path: /watchlist/{id}
+          method: get
+  
+  updateWatchList:
+    handler: src/watchlist/Watchlist.updateWatchList
+    events:
+      - httpApi:
+          path: /watchlist/{id}
+          method: put
+  
+  deleteWatchList:
+    handler: src/watchlist/Watchlist.deleteWatchList
+    events:
+      - httpApi:
+          path: /watchlist/{id}
+          method: delete
+
 resources:
   Resources: 
     PortfolioTable:
       Type: AWS::DynamoDB::Table
       Properties: 
         TableName: PortfolioTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions: 
+          - AttributeName: id
+            AttributeType: S
+        KeySchema: 
+          - AttributeName: id
+            KeyType: HASH
+    
+    WatchlistTable: 
+      Type: AWS::DynamoDB::Table
+      Properties: 
+        TableName: WatchlistTable
         BillingMode: PAY_PER_REQUEST
         AttributeDefinitions: 
           - AttributeName: id

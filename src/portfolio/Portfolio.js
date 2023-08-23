@@ -1,11 +1,11 @@
 "use strict";
-const { DynamoDBClient, PutItemCommand, GetItemCommand, UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBClient, PutItemCommand, GetItemCommand, UpdateItemCommand, DeleteItemCommand } = require("@aws-sdk/client-dynamodb");
 const { v4: uuidv4 } = require('uuid');
 const { transform } = require("../util/portfolioUtil");
 const { mergePortfolios } = require("../util/portfolioUtil");
 
 const addPortfolio = async (event) => {
-    const { portfolio } = JSON.parse(event.body);
+    const { userId, portfolio } = JSON.parse(event.body);
     const createdAt = new Date();
     const id = uuidv4();
     let startDate = new Date();
@@ -15,6 +15,7 @@ const addPortfolio = async (event) => {
         TableName: "PortfolioTable",
         Item: {
             id: { S: id },
+            userId: { S: userId },
             portfolio: { M: transformedPortfolio },
             createdAt: { S: createdAt }
         }
@@ -26,6 +27,7 @@ const addPortfolio = async (event) => {
     }
     const newPortfolio = {
         id: { S: id },
+        userId: { S: userId },
         portfolio: { M: transformedPortfolio },
         createdAt: { S: createdAt }
       }
