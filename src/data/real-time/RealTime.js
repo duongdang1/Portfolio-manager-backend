@@ -11,6 +11,10 @@ const getRealTimeData = async (event) => {
         return {
             statusCode:200,
             body: JSON.stringify(finalResponse),
+            headers: {
+                'Access-Control-Allow-Origin': 'http://localhost:3000',
+                'Access-Control-Allow-Credentials': true,
+            },
         }
     }catch (error) {
         console.error(error);

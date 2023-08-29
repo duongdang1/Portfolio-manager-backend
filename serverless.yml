@@ -91,7 +91,7 @@ functions:
     events: 
       - httpApi: 
           path: /getRealTime
-          method: get
+          method: post
 
 resources:
   Resources: 

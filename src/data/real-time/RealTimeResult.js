@@ -1,6 +1,6 @@
 function filterRealTimeResponse(response) {
     const finalResponse = { 
-        name: { S: response.data["data"]["name"]},
+        ticker: { S: response.data["data"]["symbol"]},
         price: { N: response.data["data"]["price"]},
         open: { N: response.data["data"]["open"]},
         high: { N: response.data["data"]["high"]},
