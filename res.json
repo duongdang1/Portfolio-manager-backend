@@ -1,0 +1,115 @@
+{
+    "stories": [
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "S&P 500 Climbs 1% as Traders Dial Back Fed Wagers: Markets Wrap",
+        "published": 1693323454,
+        "internalID": "S04D80DWX2PS01",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iooubBP.J_eg/v0/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-28/stock-market-today-dow-s-p-live-updates",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-28/stock-market-today-dow-s-p-live-updates"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "VinFast’s World-Beating Gain Evokes Memory of $400 Billion Crash",
+        "published": 1693316854,
+        "internalID": "S04QI9T1UM0W01",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i31KxJhcUUvM/v1/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-29/world-s-hottest-stock-evokes-memories-of-a-400-billion-crash",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-29/world-s-hottest-stock-evokes-memories-of-a-400-billion-crash"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "Stocks Grind Higher at Start of Busy Economic Week: Markets Wrap",
+        "published": 1693255814,
+        "internalID": "S01HMUT0G1KW01",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ia4TplAmUPpg/v1/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-27/asia-stocks-set-for-small-gains-currencies-steady-markets-wrap",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-27/asia-stocks-set-for-small-gains-currencies-steady-markets-wrap"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "World’s Best Large IPO of 2023 Is Indonesia Miner With 150% Gain",
+        "published": 1693280448,
+        "internalID": "S039UHT1UM0W01",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ipD9.Z3UiVrQ/v0/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-29/world-s-best-large-ipo-of-2023-is-indonesia-miner-with-150-gain",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-29/world-s-best-large-ipo-of-2023-is-indonesia-miner-with-150-gain"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "China Stocks Post Measured Gains, Settle After Monday Whiplash",
+        "published": 1693300663,
+        "internalID": "S04P4ET1UM0W01",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iI6Gjzok1Ty8/v0/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-29/china-stocks-rise-as-local-media-asks-investors-for-patience",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-29/china-stocks-rise-as-local-media-asks-investors-for-patience"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "China Asks Some Funds to Avoid Net Equity Sales to Boost Market",
+        "published": 1693212239,
+        "internalID": "S037LZT0AFB401",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iCEvt74Lpe8k/v0/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-28/china-asks-some-funds-to-avoid-net-equity-sales-to-boost-market",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-28/china-asks-some-funds-to-avoid-net-equity-sales-to-boost-market"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "Spiraling Meme Stock Mania Puts Korea Market Regulators on Alert",
+        "published": 1693261800,
+        "internalID": "S03HMNT0AFB401",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iAfgarx0xfGw/v0/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-28/meme-stock-cycles-get-shorter-as-margin-loans-surge-in-korea",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-28/meme-stock-cycles-get-shorter-as-margin-loans-surge-in-korea"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "China’s Fukushima Backlash Is Starting to Weigh on Japan Stocks",
+        "published": 1693207281,
+        "internalID": "S02U0LT0AFB401",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iiDaYqDVHkiw/v0/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-28/china-dependent-japan-stocks-plunge-on-boycott-over-wastewater",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-28/china-dependent-japan-stocks-plunge-on-boycott-over-wastewater"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "US Unveils Plan to Hit More Banks With Long-Term Debt Minimums",
+        "published": 1693317600,
+        "internalID": "S05JCLDWRGG001",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iljEu66PH3tE/v1/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-29/us-unveils-plan-to-hit-more-banks-with-long-term-debt-minimums",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-29/us-unveils-plan-to-hit-more-banks-with-long-term-debt-minimums"
+      },
+      {
+        "resourceType": "Story",
+        "card": "article",
+        "title": "VinFast’s Stock Surge Is a ‘Coin Toss’ for Investors",
+        "published": 1692971703,
+        "internalID": "RZG91RDWRGG001",
+        "thumbnailImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iEs1P6LgTWqQ/v0/600x-1.jpg",
+        "primarySite": "markets",
+        "shortURL": "https://www.bloomberg.com/news/articles/2023-08-25/vinfast-s-stock-surge-is-a-coin-toss-for-investors-tech-watch",
+        "longURL": "https://www.bloomberg.com/news/articles/2023-08-25/vinfast-s-stock-surge-is-a-coin-toss-for-investors-tech-watch"
+      }
+    ],
+    "title": "Stocks"
+  }

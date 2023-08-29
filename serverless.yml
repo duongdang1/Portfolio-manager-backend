@@ -93,6 +93,13 @@ functions:
           path: /getRealTime
           method: post
 
+  getArticles: 
+    handler: src/data/articles/Article.getArticleData
+    events: 
+      - httpApi:
+          path: /getArticles
+          method: get
+
 resources:
   Resources: 
     PortfolioTable:

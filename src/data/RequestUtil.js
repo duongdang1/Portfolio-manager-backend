@@ -34,4 +34,21 @@ function RealTimeRequestBuilder(symbol) {
     return options;
 }
 
-module.exports = { TimeSeriesRequestBuilder, RealTimeRequestBuilder }
+function ArticleRequestBuilder() {
+    const options = {
+        method: 'GET',
+        url: 'https://bloomberg-market-and-financial-news.p.rapidapi.com/stories/list',
+        params: {
+            template: 'STOCK',
+            id: 'usdjpy'
+        },
+        headers: {
+            'X-RapidAPI-Key': process.env.BLOOMBERG_API_KEY,
+            'X-RapidAPI-Host': 'bloomberg-market-and-financial-news.p.rapidapi.com'
+        }
+    };
+    return options;
+
+}
+module.exports = { TimeSeriesRequestBuilder, RealTimeRequestBuilder, ArticleRequestBuilder }
+
